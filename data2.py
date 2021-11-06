@@ -70,6 +70,45 @@ while nasalRow < len(nasalclear):
 
 # find the trend per drug per month
 
-zapa1 = int; zapa2 = int; zapa3 = int; zapa4 = int; zapa5 = int; zapa6 = int
-i = 0
-while i < len
+zapa1 = 0; zapa2 = 0; zapa3 = 0; zapa4 = 0; zapa5 = 0; zapa6 = 0
+i = 0; 
+while i < len(zapapain):
+    zapa1 = int(zapapain[i][11]) + zapa1
+    zapa2 = int(zapapain[i][12]) + zapa2
+    zapa3 = int(zapapain[i][13]) + zapa3
+    zapa4 = int(zapapain[i][14]) + zapa4
+    zapa5 = int(zapapain[i][15]) + zapa5
+    zapa6 = int(zapapain[i][16]) + zapa6
+    i += 1
+
+nova1 = 0; nova2 = 0; nova3 = 0; nova4 = 0; nova5 = 0; nova6 = 0
+i = 0; 
+while i < len(novaitch):
+    nova1 = int(novaitch[i][11]) + nova1
+    nova2 = int(novaitch[i][12]) + nova2
+    nova3 = int(novaitch[i][13]) + nova3
+    nova4 = int(novaitch[i][14]) + nova4
+    nova5 = int(novaitch[i][15]) + nova5
+    nova6 = int(novaitch[i][16]) + nova6
+    i += 1
+
+chloe1 = 0; chloe2 = 0; chloe3 = 0; chloe4 = 0; chloe5 = 0; chloe6 = 0
+i = 0; 
+while i < len(cholecap):
+    chloe1 += int(cholecap[i][11])
+    chloe2 += int(cholecap[i][12])  
+    chloe3 += int(cholecap[i][13]) 
+    chloe4 += int(cholecap[i][14]) 
+    chloe5 += int(cholecap[i][15])
+    chloe6 += int(cholecap[i][16]) 
+    i += 1
+nasal1 = 0; nasal2 = 0; nasal3 = 0; nasal4 = 0; nasal5 = 0; nasal6 = 0
+i = 0; 
+while i < len(nasalclear):
+    nasal1 += int(nasalclear[i][11])
+    nasal2 += int(nasalclear[i][12])  
+    nasal3 += int(nasalclear[i][13]) 
+    nasal4 += int(nasalclear[i][14]) 
+    nasal5 += int(nasalclear[i][15])
+    nasal6 += int(nasalclear[i][16]) 
+    i += 1
