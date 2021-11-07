@@ -1,64 +1,49 @@
-var barChartData = {
-    labels: [
-      "Washington",
-      "Florida",
-      "Montana",
-      "Indiana",
-      "Alaska",
-      "Nevada",
-      "Oregon",
-      "Michigan",
-      "Minnesota",
-      "Kentucky"
-
-    ],
-    datasets: [
-      {
-        label: "nRx",
-        backgroundColor: "pink",
-        borderColor: "red",
-        borderWidth: 1,
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      },
-      {
-        label: "Projected",
-        backgroundColor: "lightblue",
-        borderColor: "blue",
-        borderWidth: 1,
-        data: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-      },
-
-    ]
-  };
-  
-  var chartOptions = {
-    responsive: true,
-    legend: {
-      position: "top"
-    },
-    title: {
-      display: true,
-      text: "nRx and Projected Sales per State"
-    },
-    scales: {
-      yAxes: [{
-        scaleLabel: {
-            display: true,
-            labelString: '# Prescribed'
+// $(document).ready(function(){
+  $.getJSON("https://joshvarg.github.io/stateAnalysis.json", function(data){
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var barChartData = {
+      labels: [
+        "Washington",
+        "Florida",
+        "Montana",
+        "Indiana",
+        "Alaska",
+        "Nevada",
+        "Oregon",
+        "Michigan",
+        "Minnesota",
+        "Kentucky"
+      ],
+      datasets: [
+        {
+          label: "nRx",
+          backgroundColor: "pink",
+          data: [data.targets[0].nRx, data.targets[1].nRx, data.targets[2].nRx, data.targets[3].nRx, data.targets[4].nRx, data.targets[5].nRx, data.targets[6].nRx, data.targets[7].nRx, data.targets[8].nRx, data.targets[9].nRx]
         },
-        ticks: {
-          beginAtZero: true
+        {
+          label: "Projected",
+          backgroundColor: "lightblue",
+          data: [data.targets[0].proj, data.targets[1].proj, data.targets[2].proj, data.targets[3].proj, data.targets[4].proj, data.targets[5].proj, data.targets[6].proj, data.targets[7].proj, data.targets[8].proj, data.targets[9].proj]
         }
-      }]
-    }
-  }
-  
-  window.onload = function() {
-    var ctx = document.getElementById("myChart").getContext('2d')
-    window.myBar = new Chart(ctx, {
-      type: "bar",
+
+      ]
+    };
+
+    var myBarChart = new Chart(ctx, {
+      type: 'bar',
       data: barChartData,
-      options: chartOptions
-    });
-  };
-  
+      options: {
+        barValueSpacing: 10,
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0,
+            }
+          }]
+        }
+      }
+    })
+    
+//   }); 
+// });
+});

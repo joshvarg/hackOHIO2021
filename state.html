@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trending and Targeting Reports</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>State Stuff</h1>
+    <div>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </div>
+    <div>   
+        <img src="images/Washington.png" alt="Washington" width="150" height="100" onclick="window.location.href='washington.html'">
+        <img src="images/Florida.png" alt="Florida" width="150" height="100" onclick="window.location.href='florida.html'">
+        <img src="images/Montana.png" alt="Montana" width="150" height="100" onclick="window.location.href='montana.html'">
+        <img src="images/Indiana.png" alt="Indiana" width="150" height="100" onclick="window.location.href='indiana.html'">
+        <img src="images/Alaska.png" alt="Alaska" width="150" height="100" onclick="window.location.href='alaska.html'">
+        <img src="images/Nevada.png" alt="Nevada" width="150" height="100" onclick="window.location.href='nevada.html'">
+        <img src="images/Oregon.png" alt="Oregon" width="150" height="100" onclick="window.location.href='oregon.html'">
+        <img src="images/Michigan.png" alt="Michigan" width="150" height="100" onclick="window.location.href='michigan.html'">
+        <img src="images/Minnesota.png" alt="Minnesota" width="150" height="100" onclick="window.location.href='minnesota.html'">
+        <img src="images/Kentucky.png" alt="Kentucky" width="150" height="100" onclick="window.location.href='kentucky.html'">
+
+
+       
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 chart">
+                <canvas id="myChart" width="500" height="400"></canvas>
+            </div>
+            <div class="col-6 chart">
+                <canvas id="myChart2" width="500" height="400"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 chart">
+                <canvas id="myChart3" width="500" height="400"></canvas>
+            </div>
+            <div class="col-6 chart">
+                <canvas id="myChart4" width="500" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+   
+    <script src="file:///Users/joshuavarghese/Documents/GitHub/hackOHIO2021/states.js"></script>
+  </body>
+</html>
