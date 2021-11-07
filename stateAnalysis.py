@@ -71,9 +71,9 @@ for i in range(0, len(emergingMarkets)):
 
 json = open("stateAnalysis.json", "w")
 json.write("{\"markets\": \"Emerging\",")
-json.write("\"lower bound\": 60,")
-json.write("\"upper bound\": 80,")
-json.write("\"max ratio\": " + str(maxRatio) + ",")
+json.write("\"lowerbound\": 60,")
+json.write("\"upperbound\": 80,")
+json.write("\"maxratio\": " + str(maxRatio) + ",")
 json.write("\"targets\":[")
 
 for i in range(0, len(emergingMarkets)):
