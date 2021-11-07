@@ -68,8 +68,7 @@ while nasalRow < len(nasalclear):
     nasal10.append(nasalclear[nasalRow])
     nasalRow += 1
 
+
+
 # find the trend per drug per month
 
-zapa1 = int; zapa2 = int; zapa3 = int; zapa4 = int; zapa5 = int; zapa6 = int
-i = 0
-while i < len
