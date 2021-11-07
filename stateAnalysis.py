@@ -56,7 +56,9 @@ for i in range(0, len(emergingMarkets)):
     proj = emergingMarkets[i][2] * maxRatio
     emergingMarkets[i].append(proj)
     target = proj - emergingMarkets[i][1]
-    emergingMarkets.append(target)
+    emergingMarkets[i].append(target)
+
+
 
 #JSON output includes the market classification as emerging, the lower bound of market percentiles, the upper bound
 #of the same thing, and the maximum ratio of new prescriptions to total prescriptions. Also included are the states
@@ -67,5 +69,23 @@ for i in range(0, len(emergingMarkets)):
 #calculated by subtracting the current prescriptions from the projection, giving a change in prescriptions, thus
 #representing the target increase
 
+json = open("stateAnalysis.json", "w")
+json.write("{\"markets\": \"Emerging\",")
+json.write("\"lower bound\": 60,")
+json.write("\"upper bound\": 80,")
+json.write("\"max ratio\": " + str(maxRatio) + ",")
+json.write("\"targets\":[")
 
+for i in range(0, len(emergingMarkets)):
+    json.write("{\"name\": \"" + emergingMarkets[i][0] + "\",")
+    json.write("\"nRx\": " + str(emergingMarkets[i][1]) + ",")
+    json.write("\"tRx\": " + str(emergingMarkets[i][2]) + ",")
+    json.write("\"ratio\": " + str(emergingMarkets[i][3]) + ",")
+    json.write("\"proj\": " + str(emergingMarkets[i][4]) + ",")
+    json.write("\"target\": " + str(emergingMarkets[i][5]))
+    json.write("}")
+    if i < len(emergingMarkets) - 1:
+        json.write(",")
+
+json.write("]}")
 
