@@ -1,0 +1,8 @@
+New Prescription Target Market States
+
+A target market is, generally, a market performing above average but with significant increases in productivity
+possible. It is defined here as a state within the 60-80th percentile range of the ratio of new prescriptions to
+total prescriptions. Then, these new prescription totals are given an "optimal projection" by multiplying the 
+total prescriptions from that state by the largest ratio of new to total prescriptions ("optimizing" the possible
+new prescription total.) These hypothetical increases are then graphed vs current numbers and possible increases
+listed beneath the State's image.
