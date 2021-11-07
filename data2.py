@@ -80,6 +80,7 @@ while i < len(zapapain):
     zapa5 = int(zapapain[i][15]) + zapa5
     zapa6 = int(zapapain[i][16]) + zapa6
     i += 1
+zapaMonthAverage = ((zapa1 + zapa2 + zapa3 + zapa4 + zapa5 + zapa6) / len(zapapain))/ 6
 
 nova1 = 0; nova2 = 0; nova3 = 0; nova4 = 0; nova5 = 0; nova6 = 0
 i = 0; 
@@ -91,6 +92,7 @@ while i < len(novaitch):
     nova5 = int(novaitch[i][15]) + nova5
     nova6 = int(novaitch[i][16]) + nova6
     i += 1
+novaMonthAverage = ((nova1 +nova2 + nova3 + nova4 + nova5 + nova6) / len(novaitch)) / 6
 
 chloe1 = 0; chloe2 = 0; chloe3 = 0; chloe4 = 0; chloe5 = 0; chloe6 = 0
 i = 0; 
@@ -102,7 +104,9 @@ while i < len(cholecap):
     chloe5 += int(cholecap[i][15])
     chloe6 += int(cholecap[i][16]) 
     i += 1
+choleMonthAverage = ((chloe1 + chloe2 + chloe3 + chloe4 + chloe5 + chloe6)/len(cholecap))/6
 nasal1 = 0; nasal2 = 0; nasal3 = 0; nasal4 = 0; nasal5 = 0; nasal6 = 0
+
 i = 0; 
 while i < len(nasalclear):
     nasal1 += int(nasalclear[i][11])
@@ -112,3 +116,71 @@ while i < len(nasalclear):
     nasal5 += int(nasalclear[i][15])
     nasal6 += int(nasalclear[i][16]) 
     i += 1
+nasalMonthAverage = ((nasal1 + nasal2 + nasal3 + nasal4 + nasal5 + nasal6) / len(novaitch)) / 6
+currentRow = 0
+currentCol = 5
+while currentRow < len(rows):
+    while currentCol < 11:
+        currentTotalSum = currentTotalSum + int(rows[currentRow][currentCol])
+        currentCol += 1
+    rows[currentRow].insert(18,currentTotalSum)
+    currentCol = 5
+    currentRow += 1
+    currentTotalSum = 0
+currentRow = 0
+highRatio = []
+# ratio of new order to total orders
+while currentRow < len(rows):
+    div = rows[currentRow][18] / rows[currentRow][17]
+    rows[currentRow].insert(19,div)
+    currentRow += 1
+    if div > .2:
+        highRatio.append(rows[currentRow])
+
+zapaAA = []
+novaAA = []
+choleAA = []
+nasalAA = []
+zapa10 = []
+zapaAAFloor = math.floor(len(zapapain) * .6)
+zapaAACeiling = math.ceil(len(zapapain) * .8)
+while zapaAAFloor < zapaAACeiling:
+    zapaAA.append(zapapain[zapaAAFloor])
+    zapaAAFloor += 1
+novaAAFloor = math.floor(len(novaitch) * .6)
+novaAACeiling = math.ceil(len(novaitch) * .8)
+while novaAAFloor < novaAACeiling:
+    novaAA.append(novaitch[novaAAFloor])
+    novaAAFloor += 1
+choleAAFloor = math.floor(len(cholecap) * .6)
+choleAACeiling = math.ceil(len(cholecap) * .8)
+while choleAAFloor < choleAACeiling:
+    choleAA.append(cholecap[choleAAFloor])
+    choleAAFloor += 1
+nasalAAFloor = math.floor(len(nasalclear) * .6)
+nasalAACeiling = math.ceil(len(nasalclear) * .8)
+while nasalAAFloor < nasalAACeiling:
+    nasalAA.append(cholecap[nasalAAFloor])
+    nasalAAFloor += 1
+nasalAA.sort(key=lambda x: x[19],reverse=True)
+choleAA.sort(key=lambda x: x[19],reverse=True)
+zapaAA.sort(key=lambda x: x[19],reverse=True)
+novaAA.sort(key=lambda x: x[19],reverse=True)
+emergingTarget = []
+currentRow = 0
+while nasalAA[currentRow][19] > .13:
+    emergingTarget.append(nasalAA[currentRow])
+    currentRow +=1
+currentRow = 0
+while choleAA[currentRow][19] > .13:
+    emergingTarget.append(choleAA[currentRow])
+    currentRow +=1
+currentRow = 0
+while zapaAA[currentRow][19] > .13:
+    emergingTarget.append(zapaAA[currentRow])
+    currentRow +=1
+currentRow = 0
+while novaAA[currentRow][19] > .13:
+    emergingTarget.append(novaAA[currentRow])
+    currentRow +=1
+print(emergingTarget)
